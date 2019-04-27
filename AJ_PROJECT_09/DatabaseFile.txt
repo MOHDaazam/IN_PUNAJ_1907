@@ -1,0 +1,46 @@
+************************** Applied_users Table ****************************
+
+create table applied_users (
+FIRSTNAME VARCHAR2(50),
+LASTNAME VARCHAR2(50),
+AGE NUMBER(2),
+GENDER VARCHAR2(7),
+CONTACTNUMBER NUMBER(12),
+UIDNUMBER NUMBER(20) NOT NULL PRIMARY KEY ,
+PASSWORD VARCHAR2(20),
+EMAIL VARCHAR2(50),
+VERIFIED VARCHAR2(10));
+
+***************************************************************************
+INSERT INTO APPLIED_USERS VALUES('azam','khan',22,'male',9457425914,123456789000,'azamkhan1730','azamkhanonla@gmail.com','false');
+
+
+**************************Admin Table**************************************
+
+create table admin (
+UIDNUMBER NUMBER(20) NOT NULL ,
+APPLICATIONID NUMBER(20) NOT NULL PRIMARY KEY ,
+STATUS VARCHAR2(20) ,
+APPLICATIONDATE DATE ,
+FOREIGN KEY (UIDNUMBER) REFERENCES APPLIED_USERS(UIDNUMBER)
+CARDNAME varchar2(20)
+) ;
+
+
+
+***************************************************************************
+
+
+***************************adminaccess Table ******************************
+
+
+create table adminaccess(
+ADMINID VARCHAR2(5)NOT NULL UNIQUE,
+ADMINPASS VARCHAR2(100)NOT NULL,
+TYPE VARCHAR2(10));
+
+INSERT INTO adminaccess values('admin','Azamkhan1730','admin')
+
+****************************************************************************
+
+
